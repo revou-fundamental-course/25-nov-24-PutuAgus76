@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BMI - Mini Project</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav>
+      <div class="icon-all" href="#">
+        <!-- <img src="asset/foto/fotoprofil.png" alt="my-mini-project" /> -->
+        <svg class="calculator" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-calculator-fill" viewBox="0 0 16 16">
+        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5m0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5z"/>
+      </svg>
+      <h1>BMI Calculator</h1>
+      </div>
+      <div id="menu-icon" class="menu-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+        </svg>
+        <!-- <i class="ph-fill ph-list"></i> -->
+      </div>
+      <ul id="menu-list" class="hidden">
+        <li>
+          <a href="#container">Home</a>
+        </li>
+        <li>
+          <a href="https://github.com/revou-fundamental-course/25-nov-24-PutuAgus76">My Project</a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/agus_sumesta/profilecard/?igsh=ajlmMzRkcW1rbG0x">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="container" id="container">
+        <h1 class="title">Kalkulator BMI</h1>
+        
+        <p class="description">
+            Berat badan ideal adalah impian semua orang. Tidak hanya memiliki bentuk tubuh yang menunjang penampilan, berat badan ideal juga menandakan kondisi tubuh yang sehat. Bagaimana denganmu? Yuk, hitung sekarang di kalkulator BMI.
+        </p>
+
+        <div class="calculator-card">
+            <form id="bmiForm">
+              <!-- Form group untuk jenis kelamin -->
+              <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <div class="radio-group">
+                  <label class="gender-p">
+                    <input type="radio" name="gender" value="pria" checked>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gender-male" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8"/>
+                    </svg>
+                    <span>Pria</span>
+                  </label>
+                  <label class="gender-w">
+                    <input type="radio" name="gender" value="wanita">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gender-female" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8M3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1 0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5"/>
+                    </svg>
+                    <span>Wanit
+                    </span>
+                  </label>
+                </div>
+              </div>
+                
+
+                <div class="form-group">
+                    <label for="berat">Berat Badan (kg)</label>
+                    <div class="input-with-icon">
+                        <input type="number" id="berat" name="berat" placeholder="Masukan berat badan dalam (kilogram)" required>
+                        <i class="edit-icon"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="usia">Usia (tahun)</label>
+                    <div class="input-with-icon">
+                        <input type="number" id="usia" name="usia" placeholder="Masukan usia dalam (tahun)" required>
+                        <i class="edit-icon"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tinggi">Tinggi badan (cm)</label>
+                    <div class="input-with-icon">
+                        <input type="number" id="tinggi" name="tinggi" placeholder="Masukan tinggi badan dalam(centi meter)" required>
+                        <i class="edit-icon"></i>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn btn-primary">Hitung BMI</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="result-card" style="display: none;">
+            <h2>Hasil</h2>
+            <div class="bmi-result">
+                <!-- Hasil BMI akan diisi oleh JavaScript -->
+            </div>
+            
+            <div class="bmi-explanation">
+                <!-- Penjelasan BMI akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script
+</body>
+</html>
