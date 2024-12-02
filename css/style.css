@@ -60,6 +60,13 @@ nav ul li a:hover {
 .menu-icon {
     font-size: 32px;
     display: none;
+    color: #0D1B2A;
+    transition: all;
+    transition-duration: 300ms;
+}
+
+.menu-icon:hover {
+    color: #0077B6;
 }
 
 /* Container styles */
@@ -141,6 +148,7 @@ nav ul li a:hover {
 .radio-group .gender-p:hover,
 .radio-group .gender-w:hover {
     transform: translateY(-2px);
+    background-color: #ffff;
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
