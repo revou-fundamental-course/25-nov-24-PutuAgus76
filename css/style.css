@@ -13,8 +13,19 @@ body {
 }
 
 /* Navbar styles */
-nav {
+/* nav {
     background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+} */
+
+nav {
+    background-color: rgba(255, 255, 255, 0.8); /* Warna putih dengan transparansi */
+    backdrop-filter: blur(10px); /* Efek blur */
+    -webkit-backdrop-filter: blur(10px); /* Untuk kompatibilitas dengan browser berbasis WebKit */
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.10);
     display: flex;
     justify-content: space-between;
     padding: 1rem 2rem;
@@ -68,6 +79,7 @@ nav ul li a:hover {
 .menu-icon:hover {
     color: #0077B6;
 }
+
 
 /* Container styles */
 .container {
@@ -214,21 +226,37 @@ nav ul li a:hover {
 }
 
 .btn-primary {
+    display: flex;
     background-color: #0088cc;
     color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .btn-secondary {
+    display: flex;
     background-color: #fff;
     border: 1px solid #ddd;
     color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .btn-download {
+    display: flex;
     background-color: #5bc0de;
     color: white;
     width: 100%;
     margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover, 
+.btn-secondary:hover, 
+.btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 /* Result card styles */
@@ -281,11 +309,18 @@ nav ul li a:hover {
         top: 0;
         z-index: 1;
         padding: 1rem 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 
     nav ul {
         flex-direction: column;
         width: 100%;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        column-gap: 40px;
+        /* background-color: grey; */
     }
 
     nav ul li:last-of-type {
