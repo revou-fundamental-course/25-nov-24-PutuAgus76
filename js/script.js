@@ -28,14 +28,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 description: "Anda kekurangan berat badan",
                 explanation: "Anda berada dalam kategori kekurangan berat badan. " +
                            "Hubungi dokter lebih lanjut mengenai pola makan dan gizi yang " +
-                           "baik untuk meningkatkan kesehatan."
+                           "baik untuk meningkatkan kesehatan.",
+                color: "red"
             };
         } else if (bmi >= 18.5 && bmi <= 24.9) {
             return {
                 status: "Normal (Ideal)",
                 description: "Anda memiliki berat badan ideal",
                 explanation: "Anda berada dalam kategori berat badan yang normal. " +
-                           "Pertahankan pola makan dan gaya hidup sehat Anda."
+                           "Pertahankan pola makan dan gaya hidup sehat Anda.",
+                color: "green"
             };
         } else if (bmi >= 25.0 && bmi <= 29.9) {
             return {
@@ -43,14 +45,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 description: "Anda memiliki berat badan berlebih",
                 explanation: "Anda berada dalam kategori kelebihan berat badan. " +
                            "Hubungi dokter untuk mendapatkan saran mengenai pola makan " +
-                           "dan gaya hidup yang lebih sehat."
+                           "dan gaya hidup yang lebih sehat.",
+                color: "red"
             };
         } else {
             return {
                 status: "Obesitas",
                 description: "Anda berada dalam kategori obesitas",
                 explanation: "Anda berada dalam kategori obesitas. Segera konsultasikan " +
-                           "dengan dokter mengenai rencana penurunan berat badan yang sehat."
+                           "dengan dokter mengenai rencana penurunan berat badan yang sehat.",
+                color: "red"
             };
         }
     }
@@ -59,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateResult(bmi, statusInfo) {
         bmiResult.innerHTML = `
             <h3>${statusInfo.status}</h3>
-            <div class="bmi-score">${bmi}</div>
+            <div class="bmi-score" style="color: ${statusInfo.color};">${bmi}</div>
             <p class="bmi-description">${statusInfo.description}</p>
             <button class="btn btn-download">Download Hasil BMI</button>
         `;
