@@ -59,13 +59,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    
     // Fungsi untuk memperbarui tampilan hasil
     function updateResult(bmi, statusInfo) {
         bmiResult.innerHTML = `
             <h3>${statusInfo.status}</h3>
             <div class="bmi-score" style="color: ${statusInfo.color};">${bmi}</div>
             <p class="bmi-description">${statusInfo.description}</p>
-            <button class="btn btn-download">Download Hasil BMI</button>
+            <button class="btn btn-download" onclick="printInvoice()">Download Hasil BMI</button>
         `;
         
         const bmiExplanation = document.querySelector('.bmi-explanation');
@@ -104,7 +105,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('btn-download')) {
             // Fungsi untuk mengunduh hasil BMI (bisa disesuaikan)
-            alert('Fitur download akan segera tersedia!');
+            // alert('Fitur download akan segera tersedia!');
+            window.print();
         }
     });
+    
+    // print 
+    function printInvoice(){
+    window.print();
+    }
 });
