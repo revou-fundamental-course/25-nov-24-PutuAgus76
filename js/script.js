@@ -4,26 +4,28 @@ const menuList = document.getElementById("menu-list");
 menuIcon.addEventListener("click", () => {
   menuList.classList.toggle("hidden");
 });
-// Menunggu DOM selesai dimuat
 document.addEventListener('DOMContentLoaded', function() {
-    // Mengambil referensi form dan elemen hasil
     const bmiForm = document.getElementById('bmiForm');
     const resultCard = document.querySelector('.result-card');
     const bmiResult = document.querySelector('.bmi-result');
+    const recommendationSection = document.getElementById('recommendationSection');
     
-    // Fungsi untuk menghitung BMI
     function hitungBMI(berat, tinggi) {
-        // Konversi tinggi dari cm ke meter
         const tinggiMeter = tinggi / 100;
-        // Hitung BMI = berat / (tinggi)²
         const bmi = berat / (tinggiMeter * tinggiMeter);
-        return bmi.toFixed(1); // Mengembalikan BMI dengan 1 angka desimal
+        return bmi.toFixed(1);
     }
     
-    // Fungsi untuk menentukan status berat badan
     function getStatusBMI(bmi) {
-        if (bmi < 18.5) {
-            return {
+        // Hide all recommendations first
+        document.querySelectorAll('.health-recommendation, .normal-recommendation').forEach(card => 
+            card.classList.add('hiddenRecomendation'));
+        
+        const bmiValue = parseFloat(bmi);
+        let result;
+
+        if (bmiValue < 18.5) {
+            result = {
                 status: "Berat Badan Kurang",
                 description: "Anda kekurangan berat badan",
                 explanation: "Anda berada dalam kategori kekurangan berat badan. " +
@@ -31,16 +33,22 @@ document.addEventListener('DOMContentLoaded', function() {
                            "baik untuk meningkatkan kesehatan.",
                 color: "red"
             };
-        } else if (bmi >= 18.5 && bmi <= 24.9) {
-            return {
+            // Show health recommendations for underweight
+            document.querySelectorAll('.health-recommendation').forEach(card => 
+                card.classList.remove('hiddenRecomendation'));
+        } else if (bmiValue >= 18.5 && bmiValue <= 24.9) {
+            result = {
                 status: "Normal (Ideal)",
                 description: "Anda memiliki berat badan ideal",
                 explanation: "Anda berada dalam kategori berat badan yang normal. " +
                            "Pertahankan pola makan dan gaya hidup sehat Anda.",
                 color: "green"
             };
-        } else if (bmi >= 25.0 && bmi <= 29.9) {
-            return {
+            // Show normal recommendations for ideal weight
+            document.querySelectorAll('.normal-recommendation').forEach(card => 
+                card.classList.remove('hiddenRecomendation'));
+        } else if (bmiValue >= 25.0 && bmiValue <= 29.9) {
+            result = {
                 status: "Kelebihan Berat Badan",
                 description: "Anda memiliki berat badan berlebih",
                 explanation: "Anda berada dalam kategori kelebihan berat badan. " +
@@ -48,25 +56,33 @@ document.addEventListener('DOMContentLoaded', function() {
                            "dan gaya hidup yang lebih sehat.",
                 color: "red"
             };
+            // Show health recommendations for overweight
+            document.querySelectorAll('.health-recommendation').forEach(card => 
+                card.classList.remove('hiddenRecomendation'));
         } else {
-            return {
+            result = {
                 status: "Obesitas",
                 description: "Anda berada dalam kategori obesitas",
                 explanation: "Anda berada dalam kategori obesitas. Segera konsultasikan " +
                            "dengan dokter mengenai rencana penurunan berat badan yang sehat.",
                 color: "red"
             };
+            // Show health recommendations for obese
+            document.querySelectorAll('.health-recommendation').forEach(card => 
+                card.classList.remove('hiddenRecomendation'));
         }
+
+        // Show recommendation section
+        recommendationSection.classList.remove('hiddenRecomendation');
+        return result;
     }
     
-    
-    // Fungsi untuk memperbarui tampilan hasil
     function updateResult(bmi, statusInfo) {
         bmiResult.innerHTML = `
             <h3>${statusInfo.status}</h3>
             <div class="bmi-score" style="color: ${statusInfo.color};">${bmi}</div>
             <p class="bmi-description">${statusInfo.description}</p>
-            <button class="btn btn-download" onclick="printInvoice()">Download Hasil BMI</button>
+            <button class="btn btn-download" onclick="window.print()">Download Hasil BMI</button>
         `;
         
         const bmiExplanation = document.querySelector('.bmi-explanation');
@@ -78,40 +94,20 @@ document.addEventListener('DOMContentLoaded', function() {
         resultCard.style.display = 'block';
     }
     
-    // Event listener untuk form submission
     bmiForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Mencegah form melakukan submit default
-        
-        // Mengambil nilai input
+        e.preventDefault();
         const berat = parseFloat(document.getElementById('berat').value);
         const tinggi = parseFloat(document.getElementById('tinggi').value);
         
-        // Menghitung BMI
         const bmi = hitungBMI(berat, tinggi);
-        
-        // Mendapatkan status dan deskripsi berdasarkan BMI
         const statusInfo = getStatusBMI(bmi);
-        
-        // Memperbarui tampilan hasil
         updateResult(bmi, statusInfo);
     });
     
-    // Event listener untuk tombol reset
     bmiForm.addEventListener('reset', function() {
         resultCard.style.display = 'none';
+        recommendationSection.classList.add('hiddenRecomendation');
+        document.querySelectorAll('.health-recommendation, .normal-recommendation').forEach(card => 
+            card.classList.add('hiddenRecomendation'));
     });
-    
-    // Event listener untuk tombol download
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('btn-download')) {
-            // Fungsi untuk mengunduh hasil BMI (bisa disesuaikan)
-            // alert('Fitur download akan segera tersedia!');
-            window.print();
-        }
-    });
-    
-    // print 
-    function printInvoice(){
-    window.print();
-    }
 });
