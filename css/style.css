@@ -114,6 +114,7 @@ nav ul li a:hover {
 .form-group {
     margin-bottom: 1.5rem;
     width: 100%;
+    justify-content: space-between;
 }
 
 .form-group label {
@@ -136,7 +137,7 @@ nav ul li a:hover {
 .radio-group .gender-w {
     display: flex;
     align-items: center;
-    background-color: #f8f9fa;
+    background-color: #ffff;
     padding: 1rem 2rem;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -244,6 +245,7 @@ nav ul li a:hover {
 
 .btn-download {
     display: flex;
+    justify-content: center;
     background-color: #5bc0de;
     color: white;
     width: 100%;
@@ -299,6 +301,152 @@ nav ul li a:hover {
 .bmi-explanation p {
     margin-bottom: 1rem;
 }
+
+/* Rekomendasi Section */
+.recommendation {
+    color: #4a5568;
+    margin-bottom: 1rem;
+}
+
+.hiddenRecomendation {
+    display: none;
+}
+
+.recommendation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.recommendation-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.recommendation-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.recommendation-content {
+    padding: 1rem;
+}
+
+.recommendation-content h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    
+}
+
+.recommendation-content h3 a {
+    font-style: none;
+    text-decoration: none;
+    color: #333;
+}
+
+.recommendation-content p {
+    font-size: 0.875rem;
+    color: #4a5568;
+}
+
+/* Disclaimer */
+
+ .disclaimer {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #0088cc;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f0f7ff;
+    border-radius: 0.25rem;
+    border: 1px solid #0088cc;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #f8f9fa;
+    padding: 3rem 0 1rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section {
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: #0077B6;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #0077B6;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icon {
+    color: #6c757d;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #0077B6;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer-bottom p {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+
 
 /* Responsive design */
 @media only screen and (max-width: 768px) {
@@ -361,5 +509,18 @@ nav ul li a:hover {
     .radio-group .gender-w {
         padding: 0.75rem 1.5rem;
         width: 100%;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .footer-section {
+        margin-bottom: 1.5rem;
     }
 }
